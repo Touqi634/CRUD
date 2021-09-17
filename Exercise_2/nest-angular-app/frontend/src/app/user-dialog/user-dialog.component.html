@@ -1,0 +1,32 @@
+<h1 mat-dialog-title *ngIf="action === 'create'">Add User</h1>
+<h1 mat-dialog-title *ngIf="action === 'edit'">Edit User</h1>
+<form [formGroup]="userForm">
+<div class="form-group"></div>
+<div mat-dialog-content>
+
+  <p>Email:</p>
+  <mat-form-field [style.width.px]=327  appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="data.email" formControlName="email"  name="email" required>
+    <mat-error>Please enter a valid email</mat-error>
+  </mat-form-field>
+
+  <p>Name:</p>
+  <mat-form-field [style.width.px]=327 appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name" formControlName="name"  name="name" required>
+    <mat-error>Please enter a valid name</mat-error>
+  </mat-form-field>
+
+  <p>Address:</p>
+  <mat-form-field [style.width.px]=327  appearance="outline">
+    <mat-label>Address</mat-label>
+    <input matInput name="address" formControlName="address" [(ngModel)]="data.address"> 
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button  mat-raised-button *ngIf="!data.id" (click)="createUser(data)" [disabled]="userForm.invalid" color="primary">Create User</button>
+  <button  mat-raised-button *ngIf="data.id" (click)="updateUser(data,data.email)" [disabled]="userForm.invalid"  color="primary">Save User</button>
+  </div>
+  </form>
