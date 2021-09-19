@@ -27,6 +27,6 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
   <button  mat-raised-button *ngIf="!data.id" (click)="createUser(data)" [disabled]="userForm.invalid" color="primary">Create User</button>
-  <button  mat-raised-button *ngIf="data.id" (click)="updateUser(data,data.email)" [disabled]="userForm.invalid"  color="primary">Save User</button>
+  <button  mat-raised-button *ngIf="data.id" (click)="updateUser(data)" [disabled]="userForm.invalid"  color="primary">Save User</button>
   </div>
   </form>

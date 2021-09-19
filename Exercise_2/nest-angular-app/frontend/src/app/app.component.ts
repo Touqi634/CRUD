@@ -70,8 +70,8 @@ export class AppComponent {
     
   }
 
-  deleteUser(email){
-    this.apiService.deleteUser(email).subscribe((result)=>{
+  deleteUser(id){
+    this.apiService.deleteUser(id).subscribe((result)=>{
       this.refreshUsers();
     });
   }

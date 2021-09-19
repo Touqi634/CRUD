@@ -18,11 +18,11 @@ export class ApiService {
   }
 
   public updateUser(user: User){
-    return this.httpClient.put<User>(`${this.API_SERVER}/users/${user.email}/`, user);
+    return this.httpClient.put<User>(`${this.API_SERVER}/users/${user.id}/`, user);
   }
 
-  public deleteUser(user: string){
-    return this.httpClient.delete(`${this.API_SERVER}/users/${user}/`);
+  public deleteUser(userId: string){
+    return this.httpClient.delete(`${this.API_SERVER}/users/${userId}/`);
   }
 
   constructor(private httpClient: HttpClient) { }  

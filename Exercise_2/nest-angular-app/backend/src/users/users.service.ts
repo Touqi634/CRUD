@@ -13,19 +13,22 @@ export class UsersService {
     return new this.UserModel(createUserDto).save();
   }
 
+  ObjectId = require('mongodb').ObjectId
+
  async findAll() {
     return this.UserModel.find();
   }
 
- async findOne(email: string) {
-    return this.UserModel.findOne({email});
+ async findOne(id: string) {
+
+    return this.UserModel.findOne({_id: this.ObjectId(id)});
   }
 
- async update(email: string, updateUserDto: UpdateUserDto) {
-    return this.UserModel.updateOne({email}, {$set: {...updateUserDto}})
+ async update(id: string, updateUserDto: UpdateUserDto) {
+    return this.UserModel.updateOne({_id: this.ObjectId(id)}, {$set: {...updateUserDto}})
   }
 
- async remove(email: string) {
-    return this.UserModel.deleteOne({email});
+ async remove(id: string) {
+    return this.UserModel.deleteOne({_id: this.ObjectId(id)});
   }
 }

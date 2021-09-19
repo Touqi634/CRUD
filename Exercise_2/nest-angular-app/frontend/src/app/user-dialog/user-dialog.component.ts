@@ -35,9 +35,6 @@ export class UserDialogComponent implements OnInit {
         email: ['', [Validators.required,Validators.email]],
         address: ['']
       })
-      if(this.action == 'edit'){
-      this.userForm.controls['email'].disable();
-      }
     }
   
 
@@ -55,7 +52,6 @@ export class UserDialogComponent implements OnInit {
       this.apiService.updateUser(f).subscribe((result)=>{
         this.matDialogRef.close();
       });
-      
     }
 
 }
