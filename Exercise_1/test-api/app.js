@@ -31,8 +31,6 @@ app.get('/api/users/:id', (req, res) =>{
 })
 
 app.post('/api/users/', (req, res) =>{
-  
-    if(!user) return res.status(404).send('User with given ID was not found');
 
     const result = validateUser(req.body);
 
